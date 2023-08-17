@@ -17,7 +17,7 @@ export default function Modify() {
     // Get Single Job
     useEffect(()=>{
 const GetSingleData = async () => {
-    const response = await fetch('/jobs/'+id,{
+    const response = await fetch('https://jobs-2dwq.onrender.com/jobs/'+id,{
         headers:{
             'Autorization':`Bearer ${user.token}`
         }
@@ -41,7 +41,7 @@ GetSingleData()
         }else{
 
         
-    const response = await fetch('/jobs/'+id,{
+    const response = await fetch('https://jobs-2dwq.onrender.com/jobs/'+id,{
     method:'PUT',
     headers:{
         'Content-Type':'application/json',

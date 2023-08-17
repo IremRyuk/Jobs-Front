@@ -29,7 +29,7 @@ if(!users){
 }
 
     const allJob = {companyName,position,salary,experience,location,gmail,description}
-    const responce = await fetch('/usermenu/',{
+    const responce = await fetch('https://jobs-2dwq.onrender.com/usermenu/',{
 method:'POST',
 body:JSON.stringify(allJob),
 headers:{

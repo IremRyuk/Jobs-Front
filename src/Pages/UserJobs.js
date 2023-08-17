@@ -15,7 +15,7 @@ export default function UserJobs() {
     const [delId,setdelId] = useState(null)
     useEffect(()=>{
         const AllJobs = async () => {
-            const response = await fetch('/usermenu/myjobs',{
+            const response = await fetch('https://jobs-2dwq.onrender.com/usermenu/myjobs',{
                 method:"GET",
                 headers:{
                     'Content-Type':'application/json',
@@ -42,7 +42,7 @@ const deleteSingleItem = async (id) => {
 }
 // DELETE JOB
 const deleteJob = async () => {
-    const responce = await fetch('/jobs/myjobs/'+delId,{
+    const responce = await fetch('https://jobs-2dwq.onrender.com/jobs/myjobs/'+delId,{
         method:'DELETE'
     })
     const json = await responce.json()

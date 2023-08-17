@@ -11,7 +11,7 @@ export const SignUpHook = () => {
     const SignUp = async (gmail,password) => {
         setLoading(true)
         setError(null)
-        const response = await fetch('/users/signup', 
+        const response = await fetch('https://jobs-2dwq.onrender.com/users/signup', 
         {
             method:"POST",
             headers:{'Content-Type':'application/json'},

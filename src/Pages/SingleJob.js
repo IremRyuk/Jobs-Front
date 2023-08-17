@@ -14,7 +14,7 @@ export default function SingleJob() {
 
     useEffect(() => {
         const GetAll = async () => {
-            let server = await fetch('/jobs/')
+            let server = await fetch('https://jobs-2dwq.onrender.com/jobs/')
             let responce = await server.json()
             let single = responce.filter(res => res._id === id)
             setItems(single)
