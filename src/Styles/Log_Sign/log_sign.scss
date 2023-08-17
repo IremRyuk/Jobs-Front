@@ -1,0 +1,54 @@
+$bg1:rgb(209, 209, 209);
+$webColor:rgb(53, 117, 226);
+// Log In 
+.loginM{
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.logInForm{
+    width: 70%;
+    height: 80vh;
+    cursor: context-menu;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 40px;
+}
+.SignPage{
+    background: linear-gradient(140deg,  #1daaff, #00669a);
+    width: 30%;
+    height: 80vh;
+    border-top-left-radius: 25mm;
+    border-bottom-left-radius: 25mm;
+    cursor: context-menu;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 40px;
+}
+
+// Sign Up
+.signUpForm{
+    margin-top: 50px;
+    background-color: $bg1;
+    border-radius: 20mm;
+    display: flex;
+    width: 40%;
+    height: fit-content;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 40px;
+    align-items: center;
+    padding: 60px 40px;
+}
+.line{
+    width: 80%;
+    border: 1px solid black;
+}

@@ -1,0 +1,52 @@
+.loginM {
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logInForm {
+  width: 70%;
+  height: 80vh;
+  cursor: context-menu;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.SignPage {
+  background: linear-gradient(140deg, #1daaff, #00669a);
+  width: 30%;
+  height: 80vh;
+  border-top-left-radius: 25mm;
+  border-bottom-left-radius: 25mm;
+  cursor: context-menu;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.signUpForm {
+  margin-top: 50px;
+  background-color: rgb(209, 209, 209);
+  border-radius: 20mm;
+  display: flex;
+  width: 40%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 40px;
+  align-items: center;
+  padding: 60px 40px;
+}
+
+.line {
+  width: 80%;
+  border: 1px solid black;
+}/*# sourceMappingURL=log_sign.css.map */

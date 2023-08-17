@@ -1,0 +1,58 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-transform: "capitalize";
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.create-job {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.job-title {
+  color: #141414;
+  font-family: DM Sans;
+  font-size: xx-large;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.job-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 60vw;
+  padding: 20px;
+  background-color: white;
+}
+
+.jobs-box {
+  width: 100vw;
+  padding: 20px;
+  background-color: rgb(209, 209, 209);
+}
+
+.textarea {
+  border: 1px solid silver;
+  padding: 10px 20px;
+  width: 70%;
+  height: 40vh;
+  resize: none;
+  color: #141414;
+  font-family: DM Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  border-radius: 4px;
+}/*# sourceMappingURL=createjob.css.map */
