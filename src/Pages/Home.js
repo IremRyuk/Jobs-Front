@@ -12,7 +12,7 @@ export default function Home() {
     const datas = useSelector(data=>data.allData)
     useEffect(()=>{
       const GetAllData = async () => {
-        const responce = await fetch('/jobs/')
+        const responce = await fetch('https://jobs-2dwq.onrender.com/jobs/')
         const json = await responce.json()
         
         if(responce.ok){
