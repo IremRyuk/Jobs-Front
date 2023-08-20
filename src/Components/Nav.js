@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../Styles/Navigation/nav.css'
 import { useNavigate } from 'react-router-dom'
 import { LogOut } from '../Hooks/LogOut'
 import { useSelector } from 'react-redux'
+import DraweMui from './DraweMui'
 
 export default function Nav() {
   // Redux
   const users = useSelector(res=>res.usersData)
+  const [windowWidth,setWindowWidth] = useState(window.innerWidth)
   
   const navigate = useNavigate()
   const {LogOutUser} = LogOut()
@@ -14,6 +16,11 @@ export default function Nav() {
     LogOutUser()
     window.location.reload()
   }
+  useEffect(()=>{
+    window.addEventListener('resize',()=>{
+      setWindowWidth(window.innerWidth)
+    })
+  })
   return (
 <nav className='nav'>
 <div className='nav-menu'>
@@ -27,7 +34,8 @@ export default function Nav() {
 {/* Name */}
 <p className='webname'>JobsList</p>
 </div>
-
+{windowWidth > 1200 && 
+<>
 {/* Links */}
 {users &&
   <ul className='list-links'>
@@ -48,12 +56,16 @@ export default function Nav() {
   {/* Log Out Button */}
   {users && 
   <>
-  <p>{users.gmail}</p>
-  <button className='login' style={{background:'#ff3d3d',width:'fit-content'}} onClick={LogOutFunct}><p className='login-name'>Log Out</p></button>
+  <p className='login-name'>{users.gmail}</p>
+  <button className='login' style={{background:'#ff3d3d',width:'fit-content',padding:'5px 20px'}} onClick={LogOutFunct}><p className='login-name'>Log Out</p></button>
   </>
   }
-  </div>
-
+</div>
+</>
+}  
+{windowWidth <= 1200 && 
+<DraweMui />
+}
 </div>
 </nav>
   )

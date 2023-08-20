@@ -46,7 +46,7 @@ export default function MainJobs() {
        sx={{
         color: '#141414',
         fontFamily: 'DM Sans',
-        fontSize: '32px',
+        fontSize: {xs:'25px',md:'32px'},
         fontStyle: 'normal',
         fontWeight: '700',
        }}>{data.length} Jobs</Typography>
@@ -55,7 +55,7 @@ export default function MainJobs() {
        <FormControl sx={{ m: 1, minWidth: 120 }} disabled={data.length<=3?true:false}>
         <Select
         sx={{
-          width:'257px',
+          width:{xs:'150px',sm:'257px'},
         }}
           value={upToDown}
           onChange={(e)=>filterByDate(e)}

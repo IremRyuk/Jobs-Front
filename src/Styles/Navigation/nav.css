@@ -105,4 +105,13 @@
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
+}
+
+@media screen and (max-width: 900px) {
+  .nav {
+    padding: 0px;
+  }
+  .nav-menu {
+    width: 90%;
+  }
 }/*# sourceMappingURL=nav.css.map */

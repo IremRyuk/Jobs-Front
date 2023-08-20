@@ -1,6 +1,6 @@
 * {
-  padding: 0%;
-  margin: 0%;
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
@@ -26,7 +26,8 @@
 }
 
 .titles {
-  width: 100%;
+  width: 75%;
+  align-items: center;
   height: 119px;
   display: flex;
   flex-direction: column;
@@ -34,10 +35,12 @@
 }
 
 .title1 {
+  width: 100%;
   color: #141414;
   font-family: DM Sans;
   font-size: 56px;
   font-weight: 700;
+  text-align: left;
 }
 
 .colored-title {
@@ -48,11 +51,13 @@
 }
 
 .title2 {
+  width: 100%;
   color: rgba(0, 0, 0, 0.7);
   font-family: DM Sans;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
+  text-align: left;
 }
 
 .search-area {
@@ -61,7 +66,6 @@
   align-items: flex-start;
   gap: -1px;
   justify-content: space-around;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.04);
 }
 
 .home-box {
@@ -114,9 +118,10 @@
 .jobsList {
   display: flex;
   padding: 2px 0;
+  flex-direction: row;
   justify-content: flex-start;
-  align-items: center;
-  gap: 24px;
+  align-items: left;
+  gap: 12px;
 }
 
 .jobsDescr {
@@ -125,4 +130,76 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.miniScreenSearch {
+  display: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .titles {
+    width: 100vw;
+    margin: 20px 0;
+  }
+  .search {
+    display: none;
+  }
+  .title1 {
+    text-align: center;
+  }
+  .title2 {
+    text-align: center;
+  }
+  .miniScreenSearch {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .home-box {
+    padding: 40px 20px;
+  }
+  .jobsBox {
+    width: 100%;
+  }
+  .home-menu {
+    justify-content: center;
+    width: 85%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .title1 {
+    text-align: center;
+    font-size: 40px;
+  }
+  .colored-title {
+    font-size: 40px;
+  }
+  .title2 {
+    text-align: center;
+  }
+  .home-menu {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .title1 {
+    text-align: center;
+    font-size: 30px;
+  }
+  .colored-title {
+    font-size: 30px;
+  }
+  .jobsList {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+  }
 }/*# sourceMappingURL=home.css.map */

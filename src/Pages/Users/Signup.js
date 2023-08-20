@@ -23,7 +23,7 @@ const navigate = useNavigate()
   return (
     <div className='signupBox'>
 <center><form className='signUpForm'>
-<center><Typography variant='h4'>Sign Up</Typography></center>
+<center><Typography sx={{fontSize:{xs:"25px",sm:'30px',md:'35px',lg:'37px'}}}>Sign Up</Typography></center>
   <TextField
     type='text'
     id="gmail"
@@ -32,7 +32,7 @@ const navigate = useNavigate()
     onChange={(e)=>setGmail(e.target.value)}
     variant='standard'
     autoComplete="off"
-    sx={{width:'70%'}}
+    sx={{width:{xs:'90%',sm:'85%',md:'80%'}}}
     InputProps={{
       style:{
         fontSize:'x-large'
@@ -47,7 +47,7 @@ const navigate = useNavigate()
     value={password}
     onChange={(e)=>setPassword(e.target.value)}
     variant='standard'
-    sx={{width:'70%'}}
+    sx={{width:{xs:'90%',sm:'85%',md:'80%'}}}
     InputProps={{
       style:{
         fontSize:'x-large'
@@ -74,7 +74,7 @@ const navigate = useNavigate()
   >Sign Up</Button>
   {errors && <center><Typography color='error' variant='h5'>{errors}</Typography></center>}
 <div className='line'></div>
-<Typography sx={{fontSize:'x-large'}}>Alerady User ? | <Button variant='outlined' sx={{fontSize:'large'}} onClick={()=>navigate('/login')}>Log In</Button></Typography>
+<Typography sx={{fontSize:'x-large'}}>Alerady User ? | <Button variant='text' sx={{fontSize:'large'}} onClick={()=>navigate('/login')}>Log In</Button></Typography>
 
 </form></center>
 </div>

@@ -2,11 +2,19 @@ import React from 'react'
 import '../../Styles/Home/home.css'
 import {useNavigate} from 'react-router-dom'
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+import SkeletonMui from '../Home/SkeletonMui'
 
 export default function JobsDescription({info}) {
     const navigate = useNavigate()
     return (
         <>
+
+        {/* If Data is null Skeleton */}
+        {info===null && 
+       <SkeletonMui />
+        }
+
+        {/* Skeleton Off & Load Data*/}
         {info && info.map(res=>(
             <div className='jobsBox' onClick={() => navigate(`/singleJobs/${res._id}`)} key={res._id}>
             <p className='jobsCompany'>Company: {res.companyName}</p>
@@ -80,6 +88,7 @@ export default function JobsDescription({info}) {
             <p className='jobsDescr'>Posted {formatDistanceToNow(new Date(res.createdAt),{addSuffix:true})}</p>
         </div>            
 ))}
+
         </>
     )
 }

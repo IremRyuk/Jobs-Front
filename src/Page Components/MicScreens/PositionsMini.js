@@ -1,14 +1,14 @@
-import React,{ useState} from 'react'
-import '../../Styles/Home/home.css'
+import { Drawer,Box, Typography } from '@mui/material'
+import React, { useState } from 'react'
 import {Button, TextField, Autocomplete} from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { DataJobsActFilteredData } from '../../Redux/action/DataJobsAct'
-import $ from 'jquery'
 import Alerts from '../../Components/Alert'
-import PositionsMini from '../MicScreens/PositionsMini'
-import FilterMini from '../MicScreens/FilterMini'
 
-export default function Search() {
+export default function PositionsMini() {
+    // Drawer Settings
+    const [posit,setPosit] = useState(false)
+    // From Original Page
     const dispatch = useDispatch()
     const data = useSelector(res=>res.allData)
     const [pos,setPos] = useState(null)
@@ -26,9 +26,6 @@ export default function Search() {
             setProblem('Fill Position & Location')
         }else{
 
-        
-            $('.css-css-1qagdeh-MuiAutocomplete-root').css({border:'none'})
-            $('.css-tat0eq-MuiFormControl-root-MuiTextField-root').css({border:'none'})
             let filtered =  data.filter(res=>{
                 return res.position.toLowerCase() === pos.toLowerCase() && res.location.toLowerCase() === loc.toLowerCase()
             })
@@ -55,16 +52,11 @@ const locations = data?data.map(res=>res.location):'none'
 const uniqLocs = [...new Set(locations)]
   return (
     <>
-            {/* Titltes */}
-    <center><div className='titles'>
-<p className='title1'>Find your <span className='colored-title'>new job</span> today</p>
-<p className='title2'>Thousands of jobs in the computer, engineering and technology sectors are waiting for you.</p>
-</div></center>
-    <div className='search'>
-<div className='search-box'>
-{/* Search Area */}
-<div className='search-area'>
- <Autocomplete
+    <Button variant='contained' sx={{width:'30vw',margin:"0px 10px"}} onClick={()=>setPosit(true)}>Position</Button>
+    <Drawer open={posit} onClose={()=>setPosit(false)} anchor='right'>
+        <Box sx={{width:{xs:'250px',sm:'350px'},margin:'10px 0px',padding:'0px 10px',textAlign:'center'}}>
+            <Typography variant='h4'>Search</Typography>
+        <Autocomplete
  value={pos}
  onChange={(e,newE)=>setPos(newE)}
  freeSolo
@@ -72,13 +64,13 @@ const uniqLocs = [...new Set(locations)]
  options={uniqPos}
  size='large'
  sx={{
-    width:{sm:'250px',md:'400px',xl:'700px'},
+    width:'90%',
     height: 'min-content',
     border:'1px solid rgba(20, 20, 20, 0.10)',
     borderRadius: '4px 0 0 4px',
     padding:'5px',
     background: '#FFF',
-    fontSize:'16px',
+    margin:'10px 0px',
     "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
         border: "none",   
     }
@@ -99,12 +91,13 @@ id='posid'
  options={uniqLocs}
  size='large'
  sx={{
-    width:{sm:'150px',md:'200px',lg:'350px',xl:'420px'},
+    width:'90%',
     height: 'min-content',
     padding:'5px',
     borderRadius: '4px 0 0 4px',
     border: '1px solid rgba(20, 20, 20, 0.10)',
     background: '#FFF',
+    margin:'10px 0px',
     "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
         border: "none",   
     }
@@ -123,23 +116,18 @@ disableElevation
 disableTouchRipple
 variant='contained'
 sx={{
-    width: {sm:'170px',md:'220px',lg:'200px'},
+    width: '70%',
     height: 'max-content',
-    padding: '20px',
-    fontSize:'15px',
+    padding: '10px',
+    fontSize:'17px',
     borderRadius: '4px 0 0 4px',
-    background: '#3575E2'
+    background: '#3575E2',
+    margin:'10px'
 }}
 >Search Job</Button>
-
-</div>
-</div>
-</div>
-<div className='miniScreenSearch'>
-<FilterMini />
-<PositionsMini />
-</div>
-<Alerts IsInList={isJob} problem={problems}/>
+        </Box>
+    </Drawer>
+    <Alerts IsInList={isJob} problem={problems}/>
     </>
   )
 }

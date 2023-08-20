@@ -1,10 +1,11 @@
-import {Box,Stack,FormControl,FormControlLabel,Radio,Typography,Button,RadioGroup,TextField,InputAdornment} from '@mui/material'
-import {useState} from 'react'
-import PaidIcon from '@mui/icons-material/Paid';
+import { Drawer, Box,Stack,FormControl,FormControlLabel,Radio,Typography,Button,RadioGroup,TextField,InputAdornment } from '@mui/material'
+import React,{useState} from 'react'
 import {useDispatch,useSelector} from 'react-redux'
+import PaidIcon from '@mui/icons-material/Paid';
 import { DataJobsActFilteredData } from '../../Redux/action/DataJobsAct';
-export default function LeftFilters(){
 
+export default function FilterMini() {
+    const [fil,setFil] = useState(false)    
     // Redux Dispatch
     const dispatch = useDispatch()
 
@@ -15,6 +16,14 @@ export default function LeftFilters(){
 
     // Default Data From Redux
     const data = useSelector(res=>res.defaultData)
+    // Style For Typography
+    const TypographyStyle = {
+        color: '#141414',
+        fontFamily: 'DM Sans',
+        fontSize: '18px',
+        fontWeight: '500',
+        textAlign:'left'
+    }
 
 
     // Filter for main data
@@ -32,50 +41,29 @@ let newData = data.filter(res=>{
 
 dispatch(DataJobsActFilteredData(newData))
     }
-
-    return(
-        <Box
-        sx={{
-            display: {xs:'none',lg:'flex'},
-            width: '320px',
-            height:'min-content',
-            padding: '24px',
-            alignItems: 'flex-start',
-            gap: '24px',
-            borderRadius: '8px',
-            border: '1px solid rgba(20, 20, 20, 0.05)',
-            background: '#FFF',
-            boxShadow: '0px 1px 2px 0px rgba(0, 0, 0, 0.03)',
-        }}
-        >
+  return (
+    <>
+    <Button variant='contained' sx={{width:'30vw',margin:"0px 10px"}} onClick={()=>setFil(true)}>Filter</Button>
+    <Drawer open={fil} onClose={()=>setFil(false)} anchor='left'>
+        <Box sx={{width:{xs:'250px'},margin:'10px 0px',padding:'10px 20px',textAlign:'center'}}>
         <Stack
         direction='column'
         sx={{
-            width:'202px',
-            alignItems: 'flex-start',
+            width:'100%',
+            alignItems: 'center',
             gap: '16px',
             flex: '1 0 0',
         }}
         >
         <FormControl>
         <Typography 
-        sx={{
-            color: '#141414',
-            fontFamily: 'DM Sans',
-            fontSize: '20px',
-            fontWeight: '700',
-         }}
+        sx={TypographyStyle}
         >Filters</Typography>
 
         {/* Location */}
         <Stack mt={2}>
         <Typography 
-        sx={{
-            color: '#141414',
-            fontFamily: 'DM Sans',
-            fontSize: '18px',
-            fontWeight: '500',
-         }}
+        sx={TypographyStyle}
         >Location</Typography>
 <FormControl>
         <RadioGroup value={location}  defaultValue={location} onChange={(e)=>setLocation(e.target.value)}>
@@ -89,37 +77,27 @@ dispatch(DataJobsActFilteredData(newData))
         {/* Salary */}
         <Stack mt={2} sx={{width:'70%'}}>
         <Typography 
-        sx={{
-            color: '#141414',
-            fontFamily: 'DM Sans',
-            fontSize: '18px',
-            fontWeight: '500',
-         }}
+        sx={TypographyStyle}
         >Salary</Typography>
-<TextField
-type='number'
-value={salary}
-onChange={(e)=>setSalary(e.target.value)}
-placeholder='Salary'
-InputProps={{
-    startAdornment:(
-        <InputAdornment position='start'>
-<PaidIcon />
-        </InputAdornment>
-    )
-}}
-/>
-</Stack>
-
-{/* Working Experience */}
-<Stack mt={2}>
-<Typography 
-        sx={{
-            color: '#141414',
-            fontFamily: 'DM Sans',
-            fontSize: '18px',
-            fontWeight: '500',
-         }}
+        <TextField
+        type='number'
+        value={salary}
+        onChange={(e)=>setSalary(e.target.value)}
+        placeholder='Salary'
+        InputProps={{
+            startAdornment:(
+                <InputAdornment position='start'>
+                <PaidIcon />
+                </InputAdornment>
+            )
+        }}
+        />
+        </Stack>
+        
+        {/* Working Experience */}
+        <Stack mt={2}>
+        <Typography 
+        sx={TypographyStyle}
         >Working Experience</Typography>
 
         <RadioGroup value={experience}  defaultValue={experience} onChange={(e)=>setExperience(e.target.value)}>
@@ -134,5 +112,7 @@ InputProps={{
             <Button variant='contained' fullWidth onClick={filterData}>Filter</Button>
         </Stack>
         </Box>
-    )
+    </Drawer>
+    </>
+  )
 }

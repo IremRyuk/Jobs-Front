@@ -8,18 +8,23 @@ import DateRangeIcon from '@mui/icons-material/DateRange';
 import PaidIcon from '@mui/icons-material/Paid';
 import EmailIcon from '@mui/icons-material/Email';
 import {useSelector} from 'react-redux'
+import ModalSuc from '../Components/ModalSuc';
 
 export default function CreateJob() {
 const [companyName,setCompanyName] = useState('')
 const [position,setPosition] = useState('')
 const [salary,setSalary] = useState('')
 const [experience,setExperience] = useState('')
-const [location,setLocation] = useState('office')
+const [location,setLocation] = useState('remote')
 const [gmail,setGmail] = useState('')
 const [description,setDescription] = useState('')
+const [realLocation,setRLocation] = useState('remote')
+const [modals,setModal] = useState(false)
 // Redux
 const users = useSelector(data=>data.usersData)
-
+const clearAllInputs = () => {
+    
+}
 const addNewJob = async (e) => {
     e.preventDefault()
 
@@ -40,11 +45,16 @@ headers:{
     const newJobs = await responce.json()
     console.log(newJobs)
     if(responce.ok){
-        alert('add new job')
+        setModal(true)
+        setTimeout(()=>{
+            setModal(false)
+        },1500)
+        window.location.reload()
     }
 }
 
   return (
+    <>
     <div className='create-job'>
         <p className='job-title'>Add New Job On <span style={{color:'rgb(53, 117, 226)'}}>JobsList</span></p>
         <div className='jobs-box'>
@@ -54,7 +64,7 @@ headers:{
             onChange={(e)=>setCompanyName(e.target.value)}
 
             variant='outlined'
-            sx={{width:'50%'}}
+            sx={{width:{xs:'90%',sm:'70%',md:'50%'}}}
             label='Company Name' 
             type='text'
             placeholder='Name'
@@ -75,7 +85,7 @@ headers:{
             label='Client Position' 
             type='text'
             placeholder='Position'
-            sx={{width:'50%'}}
+            sx={{width:{xs:'90%',sm:'70%',md:'50%'}}}
             autoComplete='off'
             InputProps={{
                 startAdornment:(
@@ -94,7 +104,7 @@ headers:{
             label='Salary'
             placeholder='Dollar'
             type='number' 
-            sx={{width:'50%'}}
+            sx={{width:{xs:'90%',sm:'70%',md:'50%'}}}
             autoComplete='off'
             InputProps={{
                 startAdornment:(
@@ -113,7 +123,7 @@ headers:{
             label='Cleint Experience' 
             placeholder='Years Experience'
             type='Number' 
-            sx={{width:'50%'}}
+            sx={{width:{xs:'90%',sm:'70%',md:'50%'}}}
             autoComplete='off'
             InputProps={{
                 startAdornment:(
@@ -132,7 +142,7 @@ headers:{
             label='Company Gmail' 
             placeholder='Contact'
             type='mail' 
-            sx={{width:'50%'}}
+            sx={{width:{xs:'90%',sm:'70%',md:'50%'}}}
             autoComplete='off'
             InputProps={{
                 startAdornment:(
@@ -147,22 +157,44 @@ headers:{
             {/* Location */}
             <FormControl
              sx={{
-            width:'50%',
+                width:{xs:'90%',sm:'70%',md:'50%'}
             }}>
             <Select
-        label='Select Location'
-        value={location}
-        onChange={(e)=>setLocation(e.target.value)}
+        value={realLocation}
+        onChange={(e)=>setRLocation(e.target.value)}
         startAdornment={
             <InputAdornment position="end">
               <PlaceIcon />
             </InputAdornment>
           }
         >
-          <MenuItem value='office'>Office</MenuItem>
           <MenuItem value='remote'>Remote</MenuItem>
+          <MenuItem value='office'>Office</MenuItem>
         </Select>
         </FormControl>
+        {/* Custom Location */}
+        <TextField 
+            disabled={realLocation==='remote'?true:false}
+            value={location}
+            onChange={(e)=>setLocation(e.target.value)}
+            onClick={()=>setLocation('')}
+            
+            variant='outlined' 
+            label='Custom Location' 
+            placeholder='Location'
+            type='mail' 
+            sx={{width:{xs:'90%',sm:'70%',md:'50%'}}}
+            autoComplete='off'
+            InputProps={{
+                startAdornment:(
+                    <InputAdornment position='start'>
+                    <PlaceIcon />
+                    </InputAdornment>
+                )
+            }}
+            />
+        {/* Custom Location */}
+
 
             {/* Description Area */}
             <textarea
@@ -175,13 +207,15 @@ headers:{
 
 
             {/* Add Job */}
-            <Stack direction='row'>
-                <Button>Clear</Button>
-                <Button onClick={addNewJob}>Add Job</Button>
+            <Stack direction='row' spacing={2} mb={2}>
+                <Button variant='outlined' color='error' onClick={clearAllInputs}>Clear</Button>
+                <Button variant='contained' onClick={addNewJob}>Add Job</Button>
             </Stack>
 
         </form></center>
         </div>
     </div>
+    <ModalSuc IsFalse={modals} />
+    </>
   )
 }

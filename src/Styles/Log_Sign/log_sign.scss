@@ -34,6 +34,18 @@ $webColor:rgb(53, 117, 226);
     gap: 40px;
 }
 
+.minSignUp{
+position: absolute;
+display: none;
+top: 10%;
+right: 0%;
+color: white;
+border-top-left-radius: 17mm;
+border-bottom-left-radius: 17mm;
+padding: 10px 40px;
+background: linear-gradient(140deg,  #1daaff, #00669a);
+}
+
 // Sign Up
 .signUpForm{
     margin-top: 50px;
@@ -51,4 +63,50 @@ $webColor:rgb(53, 117, 226);
 .line{
     width: 80%;
     border: 1px solid black;
+}
+
+@media screen and (max-width:1200px) {
+    // Login
+    .logInForm{
+        width: 60%;
+    }
+    .SignPage{
+        padding: 0px 40px;
+        width: 40%;
+    }
+    // SignUp
+    .signUpForm{
+        margin: 50px 0px;
+        width: 70%;
+        padding: 60px 10px;
+    }
+}
+@media screen and (max-width:900px) {
+    .logInForm{
+        width: 100%;
+    }
+    .SignPage{
+        display: none;
+    }
+    .minSignUp{
+        display: block;
+    }
+    // SignUp
+    .signUpForm{
+        margin: 50px 0px;
+        border-radius: 10mm;
+        width: 80%;
+        gap: 35px;
+        padding: 20px 2px;
+    }
+}
+@media screen and (max-width:500px) {
+    // SignUp
+    .signUpForm{
+        margin: 50px 0px;
+        border-radius: 10mm;
+        width: 95%;
+        gap: 35px;
+        padding: 20px 2px;
+    }
 }

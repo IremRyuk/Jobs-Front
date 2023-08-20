@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Button,InputAdornment,TextField,Typography } from '@mui/material'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import '../../Styles/Log_Sign/log_sign.css'
 import { LogInHook } from '../../Hooks/LogInHook';
 import {useNavigate} from 'react-router-dom'
@@ -19,9 +20,10 @@ export default function SignUp() {
 await logInUser(gmail,password)
  }
   return (
+    <>
     <div className='loginM'>
 <form className='logInForm'>
-<center><Typography variant='h4'>Login To Your Account</Typography></center>
+<center><Typography sx={{fontSize:{xs:"27px",md:'32px',lg:'35px'}}}>Login To Your Account</Typography></center>
   <TextField
     type='text'
     id="gmail"
@@ -30,7 +32,7 @@ await logInUser(gmail,password)
     onChange={(e)=>setGmail(e.target.value)}
     variant='standard'
     autoComplete="off"
-    sx={{width:'40%'}}
+    sx={{width:{xs:'90%',md:'40%'}}}
     InputProps={{
       style:{
         fontSize:'x-large'
@@ -45,14 +47,14 @@ await logInUser(gmail,password)
     value={password}
     onChange={(e)=>setPassword(e.target.value)}
     variant='standard'
-    sx={{width:'40%'}}
+    sx={{width:{xs:'90%',md:'40%'}}}
     InputProps={{
       style:{
         fontSize:'x-large'
       },
       endAdornment:(
         <InputAdornment position='end' onClick={()=>setShowPass(e=>!e)} style={{cursor:'pointer'}}>
-          <VisibilityOffIcon/>
+          {showPass?<VisibilityOffIcon/>:<VisibilityIcon />}
         </InputAdornment>
       )
     }}
@@ -83,5 +85,7 @@ await logInUser(gmail,password)
   }}>Sign Up</Button>
 </div>
 </div>
+<div className='minSignUp' onClick={()=>navigate('/signup')}>SignUp</div>
+</>
   )
 }
