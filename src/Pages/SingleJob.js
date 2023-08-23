@@ -7,6 +7,8 @@ import PlaceIcon from '@mui/icons-material/Place';
 import DescriptionIcon from '@mui/icons-material/Description';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import PaidIcon from '@mui/icons-material/Paid';
+import EmailIcon from '@mui/icons-material/Email';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function SingleJob() {
     const [item, setItems] = useState(null)
@@ -22,13 +24,27 @@ export default function SingleJob() {
             GetAll()
         
     }, [id])
+
+
+    // StylIng Mui 
+const TypographyText = {
+    fontSize:{xs:'20px',md:'25',lg:'30px',xl:'35px'},
+    paddingLeft:{xs:'10px',sm:'40px'},
+    color:'#141414'}
+
+
     return (
-    <> 
+    <>
+    {!item && 
+<div style={{width:'100vw',height:'80vh',display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
+    <CircularProgress />
+</div>}
     {item && item.map(res => (
             <Box
                 key={res._id}
                 sx={{
-                    marginTop: '100px',
+                    marginTop:{xs:'20px',sm:'50px',md:'100px'},
+                    marginBottom:{xs:'10px',sm:'25px',md:'50px'},
                     width: '100vw',
                     display: 'flex',
                     justifyContent: 'center',
@@ -36,83 +52,120 @@ export default function SingleJob() {
                     bgcolor: '#FAFAFA'
                 }}>
                 <Stack
-                    direction='column'
+                    display='flex'
                     justifyContent='center'
+                    alignItems='flex-start'
                     sx={{
+                        flexDirection:{xs:'column',md:'row'},
                         width: {
+                            xs:'100%',
                             sm: '90%'
                         },
                         padding: '10px',
                         gap: '10px',
                         bgcolor: 'white'
                     }}>
-                    <Box display='flex' width='100%' flexDirection='column' gap={4}>
+
+                    {/* Job Description */}
+                    <Box
+                    display='flex' 
+                    flexDirection='column' 
+                    gap={4} 
+                    sx={{
+                        width:{xs:'100',md:'70%'}
+                    }}
+                    >
                         {/* Position */}
-                        <Stack direction='row' alignItems='flex-start' spacing={1} justifyContent='flex-start'>
-                        <BusinessCenterIcon  fontSize='large' sx={{color:'rgba(20, 20, 20, 0.7)'}} />
-                            <Typography variant='h4' sx={{color:'rgba(20, 20, 20, 0.7)'}}>Position </Typography>
-                            <Typography variant='h4' sx={{paddingLeft:'20px',color:'#141414'}}>{res.position}</Typography>
+                        <Stack direction='column' alignItems='flex-start' spacing={1} justifyContent='flex-start'>
+                        <Stack direction='row' alignItems='flex-end' spacing={1} justifyContent='center'>
+                            <BusinessCenterIcon  fontSize='large' sx={{color:'rgba(20, 20, 20, 0.7)'}} />
+                            <Typography variant='h4' sx={{fontSize:{xs:'30px',md:'35px',lg:'40px',xl:'45px'},color:'rgba(20, 20, 20, 0.7)'}}>Position</Typography>
+                        </Stack >
+                            <Typography variant='h4' sx={{fontSize:{xs:'30px',md:'35px',lg:'40px',xl:'45px'},paddingLeft:{xs:'10px',sm:'40px'},color:'#141414'}}>{res.position}</Typography>
                         </Stack>
 
                         {/* Company Name */}
-                        <Stack direction='row' alignItems='flex-start' spacing={1} justifyContent='flex-start'>
+                        <Stack direction='column' alignItems='flex-start' spacing={1} justifyContent='flex-start'>
+                        <Stack direction='row' alignItems='flex-end' spacing={1} justifyContent='center'>
                         <ApartmentIcon fontSize='large' sx={{color:'rgba(20, 20, 20, 0.7)'}} />
                             <Typography variant='h5' sx={{color:'rgba(20, 20, 20, 0.7)'}}>Company </Typography>
-                            <Typography variant='h5' sx={{paddingLeft:'20px',color:'#141414'}}>{res.companyName}</Typography>
+                        </Stack>
+                            <Typography sx={TypographyText}>{res.companyName}</Typography>
                         </Stack>
 
                         {/* Company Desciption */}
-                        <Stack direction='row' alignItems='flex-start' spacing={1} justifyContent='flex-start'>
+                        <Stack direction='column' alignItems='flex-start' spacing={1} justifyContent='flex-start'>
+                        <Stack direction='row' alignItems='flex-end' spacing={1} justifyContent='center'>
                         <DescriptionIcon fontSize='large' sx={{color:'rgba(20, 20, 20, 0.7)'}} />
                             <Typography variant='h5' sx={{color:'rgba(20, 20, 20, 0.7)',width:'fit-content'}}>Description </Typography>
-                            <Typography variant='h5' sx={{paddingLeft:'20px',color:'#141414',width:'fit-content'}}>{res.description}</Typography>
+                            </Stack>
+                            <Typography sx={TypographyText}>{res.description}</Typography>
                         </Stack>
 
                         {/* Location */}
-                        <Stack direction='row' alignItems='flex-start' spacing={1} justifyContent='flex-start'>
+                        <Stack direction='column' alignItems='flex-start' spacing={1} justifyContent='flex-start'>
+                        <Stack direction='row' alignItems='flex-end' spacing={1} justifyContent='center'>
                         <PlaceIcon fontSize='large' sx={{color:'rgba(20, 20, 20, 0.7)'}} />
                             <Typography variant='h5' sx={{color:'rgba(20, 20, 20, 0.7)'}}>Location </Typography>
-                            <Typography variant='h5' sx={{paddingLeft:'20px',color:'#141414'}}>{res.location}</Typography>
+                        </Stack>
+                            <Typography sx={TypographyText}>{res.location}</Typography>
                         </Stack>
                         
                         {/* Experience */}
-                        <Stack direction='row' alignItems='flex-start' spacing={1} justifyContent='flex-start'>
+                        <Stack direction='column' alignItems='flex-start' spacing={1} justifyContent='flex-start'>
+                        <Stack direction='row' alignItems='flex-end' spacing={1} justifyContent='center'>
                         <DateRangeIcon fontSize='large' sx={{color:'rgba(20, 20, 20, 0.7)'}} />
                             <Typography variant='h5' sx={{color:'rgba(20, 20, 20, 0.7)'}}>Experience </Typography>
-                            <Typography variant='h5' sx={{paddingLeft:'20px',color:'#141414'}}>{res.experience} Years</Typography>
+                        </Stack>
+                            <Typography sx={TypographyText}>{res.experience} Years</Typography>
                         </Stack>
                         
                         {/* Salary */}
-                        <Stack direction='row' alignItems='flex-start' spacing={1} justifyContent='flex-start'>
+                        <Stack direction='column' alignItems='flex-start' spacing={1} justifyContent='flex-start'>
+                        <Stack direction='row' alignItems='flex-end' spacing={1} justifyContent='center'>
                         <PaidIcon fontSize='large' sx={{color:'rgba(20, 20, 20, 0.7)'}} />
                             <Typography variant='h5' sx={{color:'rgba(20, 20, 20, 0.7)'}}>Salary </Typography>
-                            <Typography variant='h5' sx={{paddingLeft:'20px',color:'#141414'}}>{res.salary} $</Typography>
+                        </Stack>
+                            <Typography sx={TypographyText}>{res.salary} $</Typography>
+                        </Stack>
+                        {/* Gmail */}
+                        <Stack direction='column' alignItems='flex-start' spacing={1} justifyContent='flex-start'>
+                        <Stack direction='row' alignItems='flex-end' spacing={1} justifyContent='center'>
+                        <EmailIcon fontSize='large' sx={{color:'rgba(20, 20, 20, 0.7)'}} />
+                            <Typography variant='h5' sx={{color:'rgba(20, 20, 20, 0.7)'}}>Gmail </Typography>
+                        </Stack>                            
+                            <Typography sx={TypographyText}>{res.gmail}</Typography>
                         </Stack>
                     </Box>
-                    <Stack direction='row' mt={7} width='100%' spacing={2}>
-                        <Button
-                        disableElevation
-                        disableTouchRipple
-                         variant='contained'
-                         sx={{width:'30%',bgcolor:'#3575E2',padding:'10px 40px'}}
-                         onClick={()=>window.location.href='mailto:'+res.gmail}
-                         >Message Company In Gmail</Button>
 
+
+                    {/* Job Contacts and Support Help */}
+                    <Stack 
+                    display='flex'
+                    alignItems='center'
+                    sx={{
+                        justifyContent:{xs:'space-evenly',md:'space-between'},
+                        flexDirection:{xs:'row',md:'column'},
+                        width:{xs:'100%',md:"30%"},
+                        gap:'10px 0px',
+                        padding:'5px'
+                    }}
+                     >
                         <Button
                         disableElevation
                         disableTouchRipple
                          variant='contained'
-                         sx={{width:'30%',bgcolor:'#3575E2',padding:'10px 40px'}}
+                         sx={{width:{xs:'60%',md:'100%',lg:'80%'},bgcolor:'#3575E2',padding:{md:'20px 10px',lg:'20px 40px'}}}
                          onClick={()=>window.location.href='mailto:'+res.gmail}
-                         >Call To Company</Button>
+                         >Send Message In Gmail</Button>
 
                         <Button
                         disableElevation
                         disableTouchRipple
                          variant='contained'
                          color='error'
-                         sx={{width:'30%',padding:'10px 40px'}}
-                         onClick={()=>window.location.href='mailto:'+res.gmail}
+                         sx={{width:{xs:'37%',md:'100%',lg:'80%'},padding:{md:'20px 10px',lg:'20px 40px'}}}
+                         onClick={()=>window.open("tel:+9451235")}
                          >Support Help</Button>
                     </Stack>
                 </Stack>

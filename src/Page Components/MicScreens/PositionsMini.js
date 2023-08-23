@@ -56,7 +56,7 @@ const uniqLocs = [...new Set(locations)]
     <Drawer open={posit} onClose={()=>setPosit(false)} anchor='right'>
         <Box sx={{width:{xs:'250px',sm:'350px'},margin:'10px 0px',padding:'0px 10px',textAlign:'center'}}>
             <Typography variant='h4'>Search</Typography>
-        <Autocomplete
+        <center><Autocomplete
  value={pos}
  onChange={(e,newE)=>setPos(newE)}
  freeSolo
@@ -64,7 +64,7 @@ const uniqLocs = [...new Set(locations)]
  options={uniqPos}
  size='large'
  sx={{
-    width:'90%',
+    width:'100%',
     height: 'min-content',
     border:'1px solid rgba(20, 20, 20, 0.10)',
     borderRadius: '4px 0 0 4px',
@@ -91,7 +91,7 @@ id='posid'
  options={uniqLocs}
  size='large'
  sx={{
-    width:'90%',
+    width:'100%',
     height: 'min-content',
     padding:'5px',
     borderRadius: '4px 0 0 4px',
@@ -109,6 +109,7 @@ id='posid'
 id='locid'
 />}
   />
+  </center>
 <Button
 onClick={FilterTop}
 

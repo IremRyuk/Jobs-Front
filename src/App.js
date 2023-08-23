@@ -10,6 +10,8 @@ import { useDispatch , useSelector } from 'react-redux';
 import { UserDataAct } from './Redux/action/UserDataAct';
 import UserJobs from './Pages/UserJobs';
 import Modify from './Pages/Modify';
+import ErrorPage from './Pages/ErrorPage';
+import GoTop from './Components/GoTop';
 function App() {
   const dispatch = useDispatch()
   const users = useSelector(users=>users.usersData)
@@ -22,6 +24,7 @@ function App() {
   return (
     <div>
       <Nav />
+      <GoTop />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/createjob' element={ users ? <CreateJob /> : <Navigate to='/login'/>} />
@@ -31,6 +34,7 @@ function App() {
         <Route path='/login' element={ users ? <Navigate to='/' /> : <Login />} />
         <Route path='/myjobs' element={ users ? <UserJobs /> : <Navigate to='/login'/> } />
         <Route path='/modify/:id' element={ users ? <Modify /> : <Navigate to='/login'/> } />
+        <Route path='*' element={<ErrorPage />} />
         </Routes>
     </div>
   );

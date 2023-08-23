@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Button,InputAdornment,TextField,Typography } from '@mui/material'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import '../../Styles/Log_Sign/log_sign.css'
 import {SignUpHook} from '../../Hooks/SignUpHook'
 import { useNavigate } from 'react-router-dom';
@@ -54,7 +55,7 @@ const navigate = useNavigate()
       },
       endAdornment:(
         <InputAdornment position='end' onClick={()=>setShowPass(e=>!e)} style={{cursor:'pointer'}}>
-          <VisibilityOffIcon/>
+          {showPass?<VisibilityOffIcon/>:<VisibilityIcon />}
         </InputAdornment>
       )
     }}
