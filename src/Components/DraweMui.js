@@ -24,11 +24,11 @@ export default function DraweMui() {
     </IconButton>
     <Drawer open={open} onClose={()=>setIsOpen(false)} anchor='right'>
         <Box sx={{width:{xs:'250px',sm:'350px'}}} height='100%' bgcolor='#e8e8e8' display='flex' flexDirection='column'>
-            {/* User Gmail */}
-        {!users && 
-  <Stack direction = 'row' mt={2} justifyContent='space-around' alignItems='center'>
-  <Button variant='contained' color='warning' onClick={()=>navigate('/signup')}>Sign up</Button>
-  <Button variant='contained' color='primary' onClick={()=>navigate('/login')}>Log in</Button>
+              {/* User Gmail */}
+  {!users && 
+  <Stack direction = 'row' sx={{flexGrow:'1'}} justifyContent='space-around' alignItems='center' backgroundColor='#b4b4b4'>
+  <Button variant='contained' color='warning' sx={{width:'45%',padding:'7px 0px'}} onClick={()=>navigate('/signup')}>Sign up</Button>
+  <Button variant='contained' color='primary' sx={{width:'45%',padding:'7px 0px'}} onClick={()=>navigate('/login')}>Log in</Button>
   </Stack>
   }
 {/* Links */}
@@ -48,9 +48,9 @@ export default function DraweMui() {
   <div className='line'></div>
   <Typography variant='h5' sx={{width:'100%',textAlign:'center',padding:'25px 10px'}} onClick={()=>navigate('/myjobs')}>My Jobs</Typography>
   </Stack>
-
-    {/* Log Out Button */}
-    {users &&
+  
+   {/* Log Out Button */}
+  {users &&
   <Stack padding='20px 0px' spacing={2} justifyContent='center' alignItems='center' backgroundColor='#b4b4b4'>
   <Typography variant='h5'>{users.gmail}</Typography>
   <Button variant='contained' color='error' sx={{width:"57%"}} onClick={LogOutFunct}>Log Out</Button>
