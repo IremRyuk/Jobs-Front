@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import '../Styles/CreateJob/createjob.css'
 import {InputAdornment, Stack, TextField,Button,Select,MenuItem, FormControl} from '@mui/material'
 import ApartmentIcon from '@mui/icons-material/Apartment';
@@ -23,7 +23,14 @@ const [modals,setModal] = useState(false)
 // Redux
 const users = useSelector(data=>data.usersData)
 const clearAllInputs = () => {
-    
+    setCompanyName('')
+    setPosition('')
+    setSalary('')
+    setExperience('')
+    setLocation('')
+    setGmail('')
+    setDescription('')
+    setRLocation('')
 }
 const addNewJob = async (e) => {
     e.preventDefault()
@@ -32,27 +39,33 @@ if(!users){
     alert('You must be logged In')
     return
 }
-
     const allJob = {companyName,position,salary,experience,location,gmail,description}
-    const responce = await fetch('https://jobs-2dwq.onrender.com/usermenu/',{
-method:'POST',
-body:JSON.stringify(allJob),
-headers:{
-    'Content-Type':'application/json',
-    'Authorization':`Bearer ${users.token}`
-}
-    })
-    const newJobs = await responce.json()
-    console.log(newJobs)
-    if(responce.ok){
-        setModal(true)
-        setTimeout(()=>{
-            setModal(false)
-        },1500)
-        window.location.reload()
+    if(companyName === '' || position === '' || experience === '' || salary === '' || gmail === '' || description === '' ){
+        alert('Please Fill Inpus')
+    }else{
+        const responce = await fetch('https://jobs-2dwq.onrender.com/usermenu/',{
+            method:'POST',
+            body:JSON.stringify(allJob),
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization':`Bearer ${users.token}`
+            }
+                })
+                if(!responce.ok){
+                    alert('Problem')
+                }
+                if(responce.ok){
+                    setModal(true)
+                    setTimeout(()=>{
+                        setModal(false)
+                    },1500)
+                    window.location.reload()
+                }
     }
 }
-
+useEffect(()=>{
+setLocation('')
+},[realLocation])
   return (
     <>
     <div className='create-job'>
@@ -173,11 +186,12 @@ headers:{
         </Select>
         </FormControl>
         {/* Custom Location */}
+        {realLocation === 'office' && 
+        <>
         <TextField 
             disabled={realLocation==='remote'?true:false}
             value={location}
             onChange={(e)=>setLocation(e.target.value)}
-            onClick={()=>setLocation('')}
             
             variant='outlined' 
             label='Custom Location' 
@@ -193,8 +207,7 @@ headers:{
                 )
             }}
             />
-        {/* Custom Location */}
-
+        </>}
 
             {/* Description Area */}
             <textarea
@@ -207,9 +220,26 @@ headers:{
 
 
             {/* Add Job */}
-            <Stack direction='row' spacing={2} mb={2}>
-                <Button variant='outlined' color='error' onClick={clearAllInputs}>Clear</Button>
-                <Button variant='contained' onClick={addNewJob}>Add Job</Button>
+            <Stack direction='row' width='100%' justifyContent='center' alignItems='center' spacing={2} mb={2}>
+                <Button 
+                variant='outlined' 
+                color='error' 
+                sx={{
+                    width:'fit-content',
+                    padding:{xs:'10px 20px',sm:'10px 100px'}
+                    }} 
+                    onClick={clearAllInputs}
+                >Clear</Button>
+                <Button 
+                variant='contained' 
+                sx={{
+                    bgcolor:'#41a0ff',
+                    width:'fit-content',
+                    padding:{xs:'10px 40px',sm:'10px 100px'},
+                    '&:hover':{bgcolor:'#41a0ff'}
+                    }} 
+                    onClick={addNewJob}
+                >Add Job</Button>
             </Stack>
 
         </form></center>

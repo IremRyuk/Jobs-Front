@@ -36,13 +36,14 @@ const GetSingleData = async () => {
 GetSingleData()
     },[id,user])
 
+
     // All Changed Data
     const changeData = {companyName,position,description,salary,experience,location,}
 
 
     // Edit Job
     const Edit = async () => {
-        if(companyName.length <= 3 | position.length <= 3 | description.length <= 3 | salary.length === '' | experience.length === '' | location.length <= 2 ){
+        if(companyName.length <= 3 || position.length <= 3 || description.length <= 3 || salary.length === '' || experience.length === '' || location.length <= 2 ){
             setIsFalse(true)
             setProblem('Please Fill All Inputs')
             setTimeout(()=>{
@@ -59,12 +60,10 @@ GetSingleData()
     },
     body:JSON.stringify(changeData)
     })
-    const json = await response.json()
     if(!response.ok){
         alert('Problem In Repsone Modiy')
     }
     if(response.ok){
-        alert(json)
         window.location.reload()
     }
 }

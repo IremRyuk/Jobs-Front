@@ -8,14 +8,18 @@ export default function GoTop() {
     const Up = () => {
         window.scrollTo(0,0)
     }
+    // Change Height
     useEffect(()=>{
         window.addEventListener('scroll',()=>setHeight(window.scrollY))
+    })
+    // Toggle BTN
+    useEffect(()=>{
         if(height>350){
-            $('#upScroll').show(400)
+            $('#upScroll').show()
         }else{
             $('#upScroll').hide(400)
         }
-    })
+    },[height])
   return (
     <>
     <KeyboardDoubleArrowUpIcon 
