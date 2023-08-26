@@ -12,6 +12,8 @@ import UserJobs from './Pages/UserJobs';
 import Modify from './Pages/Modify';
 import ErrorPage from './Pages/ErrorPage';
 import GoTop from './Components/GoTop';
+import ForgetPassword from './Pages/Users/ForgetPassword';
+import ResetPassword from './Pages/Users/ResetPassword';
 function App() {
   const dispatch = useDispatch()
   const users = useSelector(users=>users.usersData)
@@ -27,13 +29,17 @@ function App() {
       <GoTop />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/createjob' element={ users ? <CreateJob /> : <Navigate to='/login'/>} />
         <Route path='/singleJobs/:id' element={<SingleJob />} />
         {/* Users */}
         <Route path='/signup' element={ users ? <Navigate to='/' /> : <SignUp />} />
         <Route path='/login' element={ users ? <Navigate to='/' /> : <Login />} />
+        <Route path='/createjob' element={ users ? <CreateJob /> : <Navigate to='/login'/>} />
         <Route path='/myjobs' element={ users ? <UserJobs /> : <Navigate to='/login'/> } />
         <Route path='/modify/:id' element={ users ? <Modify /> : <Navigate to='/login'/> } />
+        {/* Reset Password */}
+        <Route path='/forgetpassword' element={<ForgetPassword />} />
+        <Route path='/resetpassword/:id/:token' element={<ResetPassword />} />
+        {/* Page Not Found */}
         <Route path='*' element={<ErrorPage />} />
         </Routes>
     </div>
