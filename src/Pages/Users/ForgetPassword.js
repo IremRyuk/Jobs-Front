@@ -5,7 +5,7 @@ export default function ForgetPassword() {
     const [gmail,setGmail] = useState('')
     // Reset Password
     const resetPassword = async () => {
-        const response = await fetch('/forgetpassword/',{
+        const response = await fetch('https://jobs-2dwq.onrender.com/forgetpassword/',{
           method:'POST',
           body:JSON.stringify({gmail}),
           headers:{
@@ -33,6 +33,6 @@ export default function ForgetPassword() {
         />
         <Button onClick={resetPassword}>Submit</Button>
     </Stack>
-    // "proxy": "https://jobs-2dwq.onrender.com",
+
   )
 }

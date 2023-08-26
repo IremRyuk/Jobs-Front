@@ -7,7 +7,7 @@ export default function ResetPassword() {
   const {id,token} = useParams()
   const [password,setPass] =  useState('')
   const changePassword = async () => {
-    const response = await fetch(`/forgetpassword/${id}/${token}`,{
+    const response = await fetch(`https://jobs-2dwq.onrender.com/forgetpassword/${id}/${token}`,{
       method:"POST",
       body:JSON.stringify({password}),
       headers:{
