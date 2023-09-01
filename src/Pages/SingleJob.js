@@ -79,9 +79,9 @@ const TypographyText = {
                         <Stack direction='column' alignItems='flex-start' spacing={1} justifyContent='flex-start'>
                         <Stack direction='row' alignItems='flex-end' spacing={1} justifyContent='center'>
                             <BusinessCenterIcon  fontSize='large' sx={{color:'rgba(20, 20, 20, 0.7)'}} />
-                            <Typography variant='h4' sx={{fontSize:{xs:'30px',md:'35px',lg:'40px',xl:'35px'},color:'rgba(20, 20, 20, 0.7)'}}>Position</Typography>
+                            <Typography variant='h4' sx={{fontSize:{xs:'30px',md:'35px'},color:'rgba(20, 20, 20, 0.7)'}}>Position</Typography>
                         </Stack >
-                            <Typography variant='h4' sx={{fontSize:{xs:'30px',md:'35px',lg:'40px',xl:'35px'},paddingLeft:{xs:'10px',sm:'40px'},color:'#141414'}}>{res.position}</Typography>
+                            <Typography variant='h4' sx={{fontSize:{xs:'30px',md:'35px'},paddingLeft:{xs:'10px',sm:'40px'},color:'#141414'}}>{res.position}</Typography>
                         </Stack>
 
                         {/* Company Name */}
