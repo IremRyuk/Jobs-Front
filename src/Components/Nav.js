@@ -57,7 +57,7 @@ export default function Nav() {
   {users && 
   <>
   <p className='login-name'>{users.gmail}</p>
-  <button className='login' style={{background:'#ff3d3d',width:'fit-content',padding:'5px 20px'}} onClick={LogOutFunct}><p className='login-name'>Log Out</p></button>
+  <button className='login' style={{background:'#ff3d3d',width:'fit-content',padding:'5px 20px'}} onClick={LogOutFunct}><p className='login-names'>Log Out</p></button>
   </>
   }
 </div>

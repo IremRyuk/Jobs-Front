@@ -34,13 +34,12 @@
 .title1 {
     width: 100%;
     color: #141414;
-    font-family: DM Sans;
+    font-family: 'Noto Serif JP', serif;
     font-size: 56px;
     font-weight: 700;
     text-align: left;
 }
 .colored-title {
-
     color: #3575E2;
     font-family: DM Sans;
     font-size: 56px;
@@ -74,11 +73,11 @@
 .home-box {
     display: flex;
     width: 100vw;
-    padding: 48px 64px 64px;
+    padding: 37px 64px 64px;
     justify-content: center;
     gap: 8px;
 
-    background: #FAFAFA;
+    background: #f2f2f2;
 
 }
 
@@ -144,6 +143,24 @@
 .miniScreenSearch {
     display: none;
 }
+// Up Page 
+#upScroll {
+    position: fixed;
+    bottom: 7%;
+    right: 5%;
+    cursor: pointer;
+    transition: 0.2s;
+    z-index: 10;
+    &:hover{
+        scale: 1.2;
+        color:#005eff
+    }
+}
+
+
+
+
+
 // Mini Screens
 @media screen and (max-width:1200px) {
     .titles {
@@ -208,24 +225,11 @@
         gap: 10px;
     }
     #upScroll {
+        bottom:11%;
         &:hover{
             scale: 1;
             color:#3575E2
         }
     }
     
-}
-
-// Up Page 
-#upScroll {
-    position: fixed;
-    bottom: 7%;
-    right: 5%;
-    cursor: pointer;
-    transition: 0.2s;
-    z-index: 10;
-    &:hover{
-        scale: 1.2;
-        color:#005eff
-    }
 }

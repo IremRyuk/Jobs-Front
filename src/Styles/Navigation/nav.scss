@@ -90,7 +90,19 @@
     cursor: pointer;
 }
 .login-name {
+    width: 60%;
     color: #141414;
+    font-family: DM Sans;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    // Hide Long Text
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.login-names{
+    color: white;
     font-family: DM Sans;
     font-size: 20px;
     font-style: normal;

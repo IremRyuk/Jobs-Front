@@ -37,7 +37,7 @@
 .title1 {
   width: 100%;
   color: #141414;
-  font-family: DM Sans;
+  font-family: "Noto Serif JP", serif;
   font-size: 56px;
   font-weight: 700;
   text-align: left;
@@ -71,10 +71,10 @@
 .home-box {
   display: flex;
   width: 100vw;
-  padding: 48px 64px 64px;
+  padding: 37px 64px 64px;
   justify-content: center;
   gap: 8px;
-  background: #FAFAFA;
+  background: #f2f2f2;
 }
 
 .home-menu {
@@ -142,6 +142,19 @@
   display: none;
 }
 
+#upScroll {
+  position: fixed;
+  bottom: 7%;
+  right: 5%;
+  cursor: pointer;
+  transition: 0.2s;
+  z-index: 10;
+}
+#upScroll:hover {
+  scale: 1.2;
+  color: #005eff;
+}
+
 @media screen and (max-width: 1200px) {
   .titles {
     width: 100vw;
@@ -202,20 +215,11 @@
     justify-content: flex-start;
     gap: 10px;
   }
+  #upScroll {
+    bottom: 11%;
+  }
   #upScroll:hover {
     scale: 1;
     color: #3575E2;
   }
-}
-#upScroll {
-  position: fixed;
-  bottom: 7%;
-  right: 5%;
-  cursor: pointer;
-  transition: 0.2s;
-  z-index: 10;
-}
-#upScroll:hover {
-  scale: 1.2;
-  color: #005eff;
 }/*# sourceMappingURL=home.css.map */

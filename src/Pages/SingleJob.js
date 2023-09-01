@@ -28,7 +28,7 @@ export default function SingleJob() {
 
     // StylIng Mui 
 const TypographyText = {
-    fontSize:{xs:'20px',md:'25',lg:'30px',xl:'35px'},
+    fontSize:{xs:'20px',md:'22px',lg:'25px'},
     paddingLeft:{xs:'10px',sm:'40px'},
     color:'#141414'}
 
@@ -79,9 +79,9 @@ const TypographyText = {
                         <Stack direction='column' alignItems='flex-start' spacing={1} justifyContent='flex-start'>
                         <Stack direction='row' alignItems='flex-end' spacing={1} justifyContent='center'>
                             <BusinessCenterIcon  fontSize='large' sx={{color:'rgba(20, 20, 20, 0.7)'}} />
-                            <Typography variant='h4' sx={{fontSize:{xs:'30px',md:'35px',lg:'40px',xl:'45px'},color:'rgba(20, 20, 20, 0.7)'}}>Position</Typography>
+                            <Typography variant='h4' sx={{fontSize:{xs:'30px',md:'35px',lg:'40px',xl:'35px'},color:'rgba(20, 20, 20, 0.7)'}}>Position</Typography>
                         </Stack >
-                            <Typography variant='h4' sx={{fontSize:{xs:'30px',md:'35px',lg:'40px',xl:'45px'},paddingLeft:{xs:'10px',sm:'40px'},color:'#141414'}}>{res.position}</Typography>
+                            <Typography variant='h4' sx={{fontSize:{xs:'30px',md:'35px',lg:'40px',xl:'35px'},paddingLeft:{xs:'10px',sm:'40px'},color:'#141414'}}>{res.position}</Typography>
                         </Stack>
 
                         {/* Company Name */}
@@ -147,7 +147,7 @@ const TypographyText = {
                         justifyContent:{xs:'space-evenly',md:'space-between'},
                         flexDirection:{xs:'row',md:'column'},
                         width:{xs:'100%',md:"30%"},
-                        gap:'10px 0px',
+                        gap:'20px 0px',
                         padding:'5px'
                     }}
                      >
@@ -155,7 +155,7 @@ const TypographyText = {
                         disableElevation
                         disableTouchRipple
                          variant='contained'
-                         sx={{width:{xs:'60%',md:'100%',lg:'80%'},bgcolor:'#3575E2',padding:{md:'20px 10px',lg:'20px 40px'}}}
+                         sx={{width:{xs:'60%',md:'100%',lg:'70%'},bgcolor:'#3575E2',padding:{md:'20px 10px',lg:'20px 10px'}}}
                          onClick={()=>window.location.href='mailto:'+res.gmail}
                          >Send Message In Gmail</Button>
 
@@ -164,8 +164,8 @@ const TypographyText = {
                         disableTouchRipple
                          variant='contained'
                          color='error'
-                         sx={{width:{xs:'37%',md:'100%',lg:'80%'},padding:{md:'20px 10px',lg:'20px 40px'}}}
-                         onClick={()=>window.open("tel:+9451235")}
+                         sx={{width:{xs:'37%',md:'100%',lg:'70%'},padding:{md:'20px 10px',lg:'20px 10px'}}}
+                         onClick={()=> window.location.href = 'tel://' + 743121441}
                          >Support Help</Button>
                     </Stack>
                 </Stack>
