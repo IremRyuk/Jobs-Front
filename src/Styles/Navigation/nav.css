@@ -81,6 +81,14 @@
 }
 
 .login-name {
+  color: #141414;
+  font-family: DM Sans;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.login-name-short {
   width: 60%;
   color: #141414;
   font-family: DM Sans;
