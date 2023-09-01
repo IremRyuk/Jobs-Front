@@ -32,7 +32,7 @@ await logInUser(gmail,password)
     onChange={(e)=>setGmail(e.target.value)}
     variant='standard'
     autoComplete="off"
-    sx={{width:{xs:'90%',md:'40%'}}}
+    sx={{width:{xs:'90%',sm:'70%',md:'40%'}}}
     InputProps={{
       style:{
         fontSize:'x-large'
@@ -47,7 +47,7 @@ await logInUser(gmail,password)
     value={password}
     onChange={(e)=>setPassword(e.target.value)}
     variant='standard'
-    sx={{width:{xs:'90%',md:'40%'}}}
+    sx={{width:{xs:'90%',sm:'70%',md:'40%'}}}
     InputProps={{
       style:{
         fontSize:'x-large'
@@ -72,6 +72,9 @@ await logInUser(gmail,password)
   }}
   >Log In</Button>
   {errors && <center><Typography color='error' variant='h5'>{errors}</Typography></center>}
+  <div className='line' style={{width:'30%'}}></div>
+  <Typography sx={{fontSize:'x-large'}}>Forget Password ? </Typography>
+  <Button variant='outlined' color='error' sx={{fontSize:'large'}} onClick={()=>navigate('/forgetpassword')}>Click Here To Reset Password</Button>
 </form>
 <div className='SignPage'>
 <Typography variant='h4'>New Here?</Typography>

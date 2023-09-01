@@ -79,6 +79,7 @@
 @media screen and (max-width: 900px) {
   .logInForm {
     width: 100%;
+    height: 100vh;
   }
   .SignPage {
     display: none;
