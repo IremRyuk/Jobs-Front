@@ -1,12 +1,17 @@
 import { TextField,Stack,Button,Box,Typography } from '@mui/material'
 import React, { useState , useEffect } from 'react'
+import LoadingMui from '../../Components/LoadingMui';
 
 export default function ForgetPassword() {
     const [gmail,setGmail] = useState('')
     const [status,setStatus] = useState(null)
     const [color,setColor] = useState('red')
+    // Loading
+    const [loading,setLoading] = useState(null)
+
     // Reset Password
     const resetPassword = async () => {
+      setLoading(true)
         const response = await fetch('https://jobs-2dwq.onrender.com/forgetpassword/',{
           method:'POST',
           body:JSON.stringify({gmail}),
@@ -16,6 +21,7 @@ export default function ForgetPassword() {
         })
         const json = await response.json()
         setStatus(json)
+        setLoading(false)
     }
 
 // Mui Styles
@@ -45,6 +51,7 @@ export default function ForgetPassword() {
       color:color
     }
   return (
+    <>
     <Box 
     display='flex'
     justifyContent='center'
@@ -93,6 +100,8 @@ width:{xs:'40vw',md:'30vw',xl:'20vw'}
 </>}
         </Stack>
     </Box>
-
+    {/* Loading */}
+<LoadingMui loading={loading} />
+</>
   )
 }

@@ -29,7 +29,7 @@ export default function Home() {
     <div className='home-box'>
       <div className='home-menu'>
         <LeftFilters />
-        <div style={{width:'inherit'}}>
+        <div className='main-box'>
         <MainJobs />
         <JobsDescription info={datas}/>
         </div>

@@ -5,20 +5,25 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import '../../Styles/Log_Sign/log_sign.css'
 import {SignUpHook} from '../../Hooks/SignUpHook'
 import { useNavigate } from 'react-router-dom';
+import LoadingMui from '../../Components/LoadingMui';
 
 export default function SignUp() {
   // Navigate
-const navigate = useNavigate()
+  const navigate = useNavigate()
   // Values
   const [gmail,setGmail] = useState('')
   const [password,setPassword] = useState('')
   const [showPass,setShowPass] = useState(true)
+  // Loading
+  const [loading,setLoading] = useState(null)
 
   // Get From Hook
   const {SignUp,errors} = SignUpHook()
 
-  let SignUpForm = async () => {  
+  let SignUpForm = async () => {
+      setLoading(true)
       await SignUp(gmail,password)
+      setLoading(false)
   }
 
   return (
@@ -78,6 +83,8 @@ const navigate = useNavigate()
 <Typography sx={{fontSize:'x-large'}}>Alerady User ? | <Button variant='text' sx={{fontSize:'large'}} onClick={()=>navigate('/login')}>Log In</Button></Typography>
 
 </form></center>
+{/* Loading */}
+<LoadingMui loading={loading} />
 </div>
   )
 }

@@ -3,6 +3,7 @@ import React, {useState,useEffect} from 'react'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import {useNavigate, useParams} from 'react-router-dom'
+import LoadingMui from '../../Components/LoadingMui';
 
 
 export default function ResetPassword() {
@@ -12,10 +13,13 @@ export default function ResetPassword() {
   const [color,setColor] = useState('red')
   const [types,setTypes] = useState(false)
   const [changed,setChanged] = useState(false)
+  // Loading
+  const [loading,setLoading] = useState(null)
 // Navigation
 const navigate = useNavigate()
 
   const changePassword = async () => {
+    setLoading(true)
     const response = await fetch(`https://jobs-2dwq.onrender.com/forgetpassword/${id}/${token}`,{
       method:"POST",
       body:JSON.stringify({password}),
@@ -25,6 +29,7 @@ const navigate = useNavigate()
     })
     const json = await response.json()
     setStatus(json)
+    setLoading(false)
   }
 
 // Mui Styles
@@ -151,6 +156,8 @@ width:{xs:'40vw',md:'30vw',xl:'20vw'}
         </Stack>
     </Box>
   }
+      {/* Loading */}
+<LoadingMui loading={loading} />
   </>
   )
 }

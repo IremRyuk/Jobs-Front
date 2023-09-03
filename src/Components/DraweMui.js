@@ -17,6 +17,13 @@ export default function DraweMui() {
         LogOutUser()
         window.location.reload()
       }
+      // Mui Styling
+      const UserTypog = {
+        textOverflow: 'ellipsis',
+        overflow: 'hidden',
+        whiteSpace: 'nowrap',
+        fontSize:'17px'
+      }
   return (
     <>
     <IconButton onClick={()=>setIsOpen(true)}>
@@ -52,7 +59,7 @@ export default function DraweMui() {
    {/* Log Out Button */}
   {users &&
   <Stack padding='20px 0px' spacing={2} justifyContent='center' alignItems='center' backgroundColor='#b4b4b4'>
-  <Typography variant='h5'>{users.gmail}</Typography>
+  <Typography sx={UserTypog}>{users.gmail}</Typography>
   <Button variant='contained' color='error' sx={{width:"57%"}} onClick={LogOutFunct}>Log Out</Button>
   </Stack>
   }

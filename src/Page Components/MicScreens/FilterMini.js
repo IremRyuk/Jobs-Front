@@ -24,6 +24,11 @@ export default function FilterMini() {
         fontWeight: '500',
         textAlign:'left'
     }
+        const TypographyStyle2 = {
+        color: '#141414',
+        fontWeight: '500',
+        textAlign:'left'
+    }
 
 
     // Filter for main data
@@ -56,8 +61,9 @@ dispatch(DataJobsActFilteredData(newData))
         }}
         >
         <FormControl>
-        <Typography 
-        sx={TypographyStyle}
+        <Typography
+        variant='h4'
+        sx={TypographyStyle2}
         >Filters</Typography>
 
         {/* Location */}

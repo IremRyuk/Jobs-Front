@@ -5,19 +5,24 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import '../../Styles/Log_Sign/log_sign.css'
 import { LogInHook } from '../../Hooks/LogInHook';
 import {useNavigate} from 'react-router-dom'
+import LoadingMui from '../../Components/LoadingMui';
 
 export default function SignUp() {
   const [gmail,setGmail] = useState('')
   const [password,setPassword] = useState('')
   const [showPass,setShowPass] = useState(true)
   const {logInUser,errors}  = LogInHook()
+  // Loading
+  const [loading,setLoading] = useState(null)
 
   // Get From Hook
   const navigate = useNavigate()
 
  // Log In
  const logInFunc = async () => {
+  setLoading(true)
 await logInUser(gmail,password)
+setLoading(false)
  }
   return (
     <>
@@ -89,6 +94,8 @@ await logInUser(gmail,password)
 </div>
 </div>
 <div className='minSignUp' onClick={()=>navigate('/signup')}>SignUp</div>
+{/* Loading */}
+<LoadingMui loading={loading} />
 </>
   )
 }
