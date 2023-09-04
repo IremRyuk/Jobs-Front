@@ -19,6 +19,7 @@ export default function DraweMui() {
       }
       // Mui Styling
       const UserTypog = {
+        width:'95%',
         textOverflow: 'ellipsis',
         overflow: 'hidden',
         whiteSpace: 'nowrap',
