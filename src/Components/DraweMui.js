@@ -30,12 +30,12 @@ export default function DraweMui() {
         <MenuIcon sx={{fontSize:'xx-large'}} color='primary'/>
     </IconButton>
     <Drawer open={open} onClose={()=>setIsOpen(false)} anchor='right'>
-        <Box sx={{width:{xs:'250px',sm:'350px'}}} height='100%' bgcolor='#e8e8e8' display='flex' flexDirection='column'>
+        <Box sx={{width:{xs:'150px',sm:'250px'}}} height='100%' bgcolor='#e8e8e8' display='flex' flexDirection='column'>
               {/* User Gmail */}
   {!users && 
   <Stack direction = 'row' sx={{flexGrow:'1'}} justifyContent='space-around' alignItems='center' backgroundColor='#b4b4b4'>
-  <Button variant='contained' color='warning' sx={{width:'45%',padding:'7px 0px'}} onClick={()=>navigate('/signup')}>Sign up</Button>
-  <Button variant='contained' color='primary' sx={{width:'45%',padding:'7px 0px'}} onClick={()=>navigate('/login')}>Log in</Button>
+    <Button variant='contained' color='primary' sx={{width:'45%',padding:'7px 0px'}} onClick={()=>navigate('/login')}>Log in</Button>
+    <Button variant='contained' sx={{width:'45%',padding:'7px 0px',bgcolor:'#138693'}} onClick={()=>navigate('/signup')}>Sign up</Button>
   </Stack>
   }
 {/* Links */}

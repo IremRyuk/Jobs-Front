@@ -11,6 +11,7 @@ import FilterMini from '../MicScreens/FilterMini'
 export default function Search() {
     const dispatch = useDispatch()
     const data = useSelector(res=>res.allData)
+    const dataDefault = useSelector(res=>res.defaultData)
     const [pos,setPos] = useState(null)
     const [loc,setLoc] = useState(null)
     const [isJob,setIsJobs] = useState(false)
@@ -48,10 +49,10 @@ export default function Search() {
         }
 }
 // Positions
-const positions = data?data.map(res=>res.position):'none'
+const positions = dataDefault?dataDefault.map(res=>res.position):'none'
 const uniqPos = [...new Set(positions)]
 // Locations
-const locations = data?data.map(res=>res.location):'none'
+const locations = dataDefault?dataDefault.map(res=>res.location):'none'
 const uniqLocs = [...new Set(locations)]
   return (
     <>

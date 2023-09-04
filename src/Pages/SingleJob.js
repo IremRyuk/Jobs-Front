@@ -43,7 +43,7 @@ const TypographyText = {
             <Box
                 key={res._id}
                 sx={{
-                    marginTop:{xs:'20px',sm:'50px',md:'100px'},
+                    marginTop:{xs:'20px',sm:'30px',md:'50px'},
                     marginBottom:{xs:'10px',sm:'25px',md:'50px'},
                     width: '100vw',
                     display: 'flex',
