@@ -30,7 +30,7 @@ export default function DraweMui() {
         <MenuIcon sx={{fontSize:'xx-large'}} color='primary'/>
     </IconButton>
     <Drawer open={open} onClose={()=>setIsOpen(false)} anchor='right'>
-        <Box sx={{width:{xs:'150px',sm:'250px'}}} height='100%' bgcolor='#e8e8e8' display='flex' flexDirection='column'>
+        <Box sx={{width:{xs:'230px',sm:'250px'}}} height='100%' bgcolor='#e8e8e8' display='flex' flexDirection='column'>
               {/* User Gmail */}
   {!users && 
   <Stack direction = 'row' sx={{flexGrow:'1'}} justifyContent='space-around' alignItems='center' backgroundColor='#b4b4b4'>
