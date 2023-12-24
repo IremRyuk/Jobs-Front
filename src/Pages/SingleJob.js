@@ -44,12 +44,12 @@ const TypographyText = {
                 key={res._id}
                 sx={{
                     marginTop:{xs:'20px',sm:'30px',md:'50px'},
-                    marginBottom:{xs:'10px',sm:'25px',md:'50px'},
+                    paddingBottom:{xs:'25px',sm:'50px'},
                     width: '100vw',
                     display: 'flex',
                     justifyContent: 'center',
                     alginItems: 'center',
-                    bgcolor: '#FAFAFA'
+                    bgcolor: '#e9e9e9'
                 }}>
                 <Stack
                     display='flex'
@@ -63,7 +63,8 @@ const TypographyText = {
                         },
                         padding: '10px',
                         gap: '10px',
-                        bgcolor: 'white'
+                        bgcolor: 'white',
+                        marginTop:'20px'
                     }}>
 
                     {/* Job Description */}
